@@ -1,0 +1,6 @@
+Branching will be 
+->
+feature-feature_Name
+bug-Bug_Name
+Task-Task_Name
+->

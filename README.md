@@ -13,3 +13,7 @@ Welcome to the Dukaan 2.0 Clone repository! This project aims to build upon the 
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/yourusername/dukaan-clone.git
+
+
+   source ~/.nvm/nvm.sh
+
