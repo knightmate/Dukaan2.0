@@ -1,14 +1,22 @@
-import { useRouter } from 'next/router';
+
+"use client" 
+
+import { usePathname} from 'next/navigation'
+
 import React, { ReactNode } from 'react';
+import SearchBar from '../SearchBar';
+import styles from './styles.module.css';
+ 
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const router = useRouter();
-  const { pathname } = router;
+  
+  const pathname = usePathname();
 
+ 
   // Define the title based on the route using a switch statement
   let title = 'Next.js App';
 
@@ -30,18 +38,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const showText = pathname !== '/contact';
 
   return (
-    <div>
-      <header>
-        <h1>{title}</h1>
-      </header>
+    <div className={styles["layoutContainer"]}>
+    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <h1>{title}</h1>
+  </header>
 
-      {showText && <p>This text will be displayed on routes other than Contact.</p>}
+     <SearchBar/>
+      
 
-      <main>{children}</main>
-
-      <footer>
-        <p>Footer content here.</p>
-      </footer>
+  
     </div>
   );
 };
