@@ -6,6 +6,7 @@
     max-width: 400px;
    display: flex;
    flex-direction: row;
+   
  }
  
  .searchInput {
@@ -17,20 +18,20 @@
     height:100%;
     border: 1px solid rgb(185 173 173 / 50%);
     background-color:#f2f2f2;
+    padding-left:5px;
+    padding-right: 5px;
 }
 
- .searchInput:focus {
-    border: 1px solid lightblue;
-}
+ 
 .searchSuggestionsContainer {
     border: 1px solid black;
-    min-height: 40px;
     border-radius: 5px;
     border-color: rgba(204,204,204,0.8);
     outline: transparent solid 2px;
     outline-offset: 2px;
-    margin-top: 2px;
- 
+    margin-top: 10px;
+    width: 100%;
+    position: absolute
    }
 
    .lighterBackground{
@@ -38,11 +39,9 @@
    }
 
   
-   .searchIcon {
-      position: absolute;
-      top: 50%;
-      right: 10px; /* Adjust as needed */
-      transform: translateY(-50%);
-      cursor: pointer; /* Add a pointer cursor for better UX */
-    }
+   .centerDiv{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
     
