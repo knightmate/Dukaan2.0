@@ -20,11 +20,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 
   // Define the title based on the route using a switch statement
-  let title = 'Next.js App';
+  let title = 'Gavran Misal';
 
   switch (pathname) {
     case '/':
-      title = 'Home | Next.js App';
+      title = 'Gavran Misal';
       break;
     case '/about':
       title = 'About | Next.js App';
@@ -42,24 +42,27 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return(
 
   <div className={styles["layoutContainer"]}>
-  
-
   <div className="flex justify-between flex-1 items-center">
-    <div className="w-full max-w-300px" style={{maxWidth:'300px'}}>
-    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+  <div className="w-full max-w-300px" style={{ maxWidth: '300px',flexDirection:"row",display:'flex' }}>
+  <img
+    alt="store-logo"
+    className="logoStoreImg h-52 w-auto max-w-160"
+    src="https://dukaan.b-cdn.net/420x280/webp/177/288e825b-f164-4a46-bc90-8f1ecb120ed0/icon-621803a8-8cd5-4b5e-b7e0-4eb031fdbb80.jpg"
+    style={{ maxWidth: "160px" , height:'52px' ,width:"auto"}}
+  />
+  <header style={{minWidth:'50%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
     <h1>{title}</h1>
   </header>
-    </div>
+</div>
 
     <div className={styles["hide-mobile"]}>
-    <div className="max-w-300px w-full">
+    <div  style={{width:"420px"}}>
        <SearchBar/>
     </div>
     </div>
 
-    <div className="">
-       <Navbar/>
-    </div>
+        <Navbar/>
+    
   </div>
 
   
