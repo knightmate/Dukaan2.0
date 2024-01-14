@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Styles from './styles.module.css'
 
 interface Category {
@@ -16,7 +16,8 @@ interface CategoriesNavBarProps {
 
 const CategoriesNavBar: React.FC<CategoriesNavBarProps> = ({ categories, onClick }) => {
   const [scrollLeft, setScrollLeft] = useState(0);
-
+  const preSelectedIndex=categories.findIndex((categories)=>categories.isSelected);
+   const refContainer=useRef(null)
   const handleScroll = (scrollDirection: 'left' | 'right') => {
     const container = document.getElementById('categoriesContainer');
 
@@ -37,6 +38,28 @@ const CategoriesNavBar: React.FC<CategoriesNavBarProps> = ({ categories, onClick
     // Add other styles if needed
   };
 
+  const scrollCategory= (newSelectedItemIndex:number) => {
+
+    const calculateDistance = (preSelectedIndex:number, newSelectedItemIndex:number) => {
+      return Math.abs(newSelectedItemIndex - preSelectedIndex);
+    };
+    const dstnc=calculateDistance(preSelectedIndex,newSelectedItemIndex)
+    const calOffset=300//dstnc>0?dstnc*10:40;
+ 
+     if(newSelectedItemIndex<preSelectedIndex){
+      console.log("---",dstnc)
+      scroll(-calOffset);
+     }else{
+      scroll(calOffset);
+
+     }
+ 
+  };
+  const scroll = (offset:number) => {
+    refContainer.current.scrollLeft +=offset;
+  };
+  
+
   return (
     <div className='relative flex'>
      <div className='flex items-center' >
@@ -44,16 +67,18 @@ const CategoriesNavBar: React.FC<CategoriesNavBarProps> = ({ categories, onClick
        <span className='text3' > All Categories</span>
       </div>
       </div>
-      <div style={{ maxWidth: 'calc(100% - 90px)' }} className="overflow-x-auto padding-bottom-10">
+      <div  ref={refContainer} style={{ maxWidth: 'calc(100% - 90px)' }} className="overflow-x-auto padding-bottom-10">
         <ul
-          id="categoriesContainer"
           className="flex space-x-2 list-none p-0"
           style={{}}
         >
-          {categories.map((category) => (
+          {categories.map((category,index) => (
             <li
               key={category.id}
-              onClick={() => onClick(category.id)}
+              onClick={() => {
+                scrollCategory(index)
+                onClick(category.id)
+              }}
               style={{ padding:'10px' }}
               className={`cursor-pointer ${category.isSelected ? 'active-bar' : ''} relative`}
             >
