@@ -1,19 +1,6 @@
 
 
-.layoutContainer{
-
-    width: 100%;
-    padding: 0 90px;
-    max-width: 1440px;
-    
-}
-
  
 
-/* In your stylesheet or inline styles */
-@media (max-width: 767px) {
-    .hide-mobile {
-      display: none;
-    }
-  }
   
+ 

@@ -46,6 +46,25 @@
 body{
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
+  
+}
+
+.container{
+  width: 100%;
+  padding: 0 90px;
+  max-width: 1440px;
+  
+}
+.containerBorderBottom{
+  border-bottom: 1px solid #bbbbbb;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  
+}
+
+/* In your stylesheet or inline styles */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none;
+  }
 }

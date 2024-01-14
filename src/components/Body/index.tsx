@@ -13,11 +13,20 @@ const Body: React.FC<any> = () => {
       ];
 
   return (
-   <div> 
-    <CategoriesNavBar categories={fakeCategories} onClick={function (categoryId: string): void {
+    <div className=''> 
+   <div className='relative containerBorderBottom'> 
+   <div className='container'>
+   <CategoriesNavBar categories={fakeCategories} onClick={function (categoryId: string): void {
         throw new Error("Function not implemented.");
       } }/>
-  </div>   
+   </div>
+  </div>  
+
+      <div style={{height:"1000px",backgroundColor:"ActiveCaption"}}>
+
+      </div>
+
+  </div>
 
   );
 };
