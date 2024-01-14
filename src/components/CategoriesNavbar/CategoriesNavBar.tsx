@@ -38,7 +38,12 @@ const CategoriesNavBar: React.FC<CategoriesNavBarProps> = ({ categories, onClick
   };
 
   return (
-    <div className='relative'>
+    <div className='relative flex'>
+     <div className='flex items-center' >
+     <div style={{borderRightWidth:'1px',borderColor:"#dcdcdc",display:'flex',padding:'3px 3px 3px 0',marginRight:'2px'}}>
+       <span className='text3' > All Categories</span>
+      </div>
+      </div>
       <div style={{ maxWidth: 'calc(100% - 90px)' }} className="overflow-x-auto padding-bottom-10">
         <ul
           id="categoriesContainer"
@@ -70,6 +75,7 @@ const CategoriesNavBar: React.FC<CategoriesNavBarProps> = ({ categories, onClick
           </div>
         </ul>
       </div>
+      
     </div>
   );
 };

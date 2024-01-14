@@ -41,9 +41,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
        <div>
-        <div className='sticky top-0 bg-white'> 
-        <div className='container' > 
-        <div className="flex justify-between flex-1 items-center z-index-100">
+        <div className='sticky top-0 bg-white container'> 
+         <div className="flex justify-between flex-1 items-center z-index-100">
           <div className="w-full max-w-300px" style={{ maxWidth: '300px', flexDirection: "row", display: 'flex' }}>
             <img
               alt="store-logo"
@@ -66,7 +65,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         </div>
         </div>
-        </div>
+        
 
         {children}
       </div>
