@@ -6,7 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  
+  --active-bar-color: #146eb4;
 
 }
 
@@ -28,18 +28,18 @@
 
 .text2 {
   color: #4d4d4d;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 20px;
   font-family: 'GalanoGrotesque', sans-serif;
 
 }
 
 .text3 {
-  color: #ff6347;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 28px;
+  color: #636363;
+  font-size: 20px;
+  font-weight:400;
+  line-height: 20px;
   font-family: 'GalanoGrotesque', sans-serif;
 }
 
@@ -57,8 +57,7 @@ body{
 }
 .containerBorderBottom{
   border-bottom: 1px solid #bbbbbb;
-  padding-bottom: 3px;
-  padding-top: 3px;
+ 
   
 }
 
@@ -67,4 +66,14 @@ body{
   .hide-mobile {
     display: none;
   }
+}
+
+.active-bar:after {
+  content: "";
+  height: 3.5px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background: var(--active-bar-color);
 }
