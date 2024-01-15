@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import CategoriesNavBar from '../CategoriesNavbar/CategoriesNavBar';
+import CategorySection from '../CategorySection';
 
 
 const fake=[
@@ -35,6 +36,7 @@ const Body: React.FC<any> = () => {
        setFakeCategories(updatedData)
 
    }}/>
+   <CategorySection categoryId={''}/>
    </div>
      
 
