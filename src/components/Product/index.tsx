@@ -11,26 +11,50 @@ interface ProductProps {
   discountPercent: number;
 }
 
-const productCardContainerStyle:any = {
+const productCardContainerStyle: any = {
   maxWidth: 'calc(33.3333% - 24px)',
   border: '1px solid rgb(212 203 203)',
   borderRadius: '8px',
   flex: '1 0 calc(33.3333% - 24px)',
   margin: '12px',
   position: 'relative',
-  display:'flex',
-  padding:'16px'
-  
+  display: 'flex',
+  padding: '16px'
+
 };
-const productImageStyle:any={
+const productImageStyle: any = {
   width: "100px",
   height: "100px",
   borderRadius: "4px",
-  border:"1px solid #cdcdcd"
+  border: "1px solid #cdcdcd"
 }
+const productText = {
+  color: " #1a181e",
+  fontSize: "16px",
+  fontWeight: 500,
+  lineHeight: "24px",
+}
+ 
+const productQtyStyle:any = {
+  color: 'gray',
+  textTransform: 'lowercase',
+  marginTop: '8px',
+  fontSize: '14px',
+  fontWeight: 400,
+  lineHeight: '18px',
+};
+const productPriceText :any= {
+  marginRight: '6px',
+  fontSize: '18px',
+  fontWeight: 500,
+  lineHeight: '26px',
+  color:"black",
+   
+};
+  
 
 const Product: React.FC<ProductProps> = ({
-  
+
 }) => {
 
   const fakeProduct = {
@@ -41,23 +65,25 @@ const Product: React.FC<ProductProps> = ({
     productActualPrice: 80,
     discountPercent: 6,
   };
-  const {productActualPrice,productId,productImage,productName,productPrice,discountPercent}=fakeProduct;
+  const { productActualPrice, productId, productImage, productName, productPrice, discountPercent } = fakeProduct;
 
 
   return (
-    <div  style={productCardContainerStyle}>
-      <a  href={`/products/${productId}`} className="flex flex-col justify-between flex-1">
-           <div className="mb-4">
-            <div className="text-lg font-semibold line-clamp-2">{productName}</div>
-            <div className="text-sm text-gray-600">Per piece</div>
-          </div>
-          <div className='flex flex-row items-center'>
-            <div className="text-2xl font-bold text-primary">${productPrice}</div>
-            <div className="text-sm text-gray-500 flex row">
-              <span className="line-through">${productActualPrice}</span>
-              <span className="bg-secondary text-white px-2 py-1 ml-2">{discountPercent}% OFF</span>
+    <div  className='productCardContainer'>
+      <a href={`/products/${productId}`} className="flex flex-col justify-between flex-1">
+        <div className="mb-4">
+          <div style={productText} className="text-sm font-semibold line-clamp-2">{productName}</div>
+          <div  style={{...productQtyStyle}}className="text-sm text-gray-600">Per piece</div>
+        </div>
+        <div className='flex flex-row items-center flex-wrap'>
+          <div style={productPriceText} className=''>
+            ₹{productPrice}
+            <span  style={{marginRight:'12px'}} className="line-through">₹{productActualPrice}</span>
             </div>
-          
+          <div  className="text-sm text-gray-500 flex row items-center">
+             <span style={{backgroundColor:'#ee741f' ,borderRadius:'4px' ,padding:'2px 8px' }}   className="text-sm text-white">{discountPercent}% OFF</span>
+          </div>
+
         </div>
       </a>
       <div className="flex flex-col justify-between">
@@ -66,8 +92,8 @@ const Product: React.FC<ProductProps> = ({
             <img src={productImage} className="bordered object-contain" style={productImageStyle} alt="productImg" loading="lazy" />
           </a>
         </div>
-        <div style={{display:'flex'}}>
-        <CounterButton/>
+        <div style={{ display: 'flex' }}>
+          <CounterButton />
         </div>
       </div>
     </div>
