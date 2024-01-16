@@ -6,7 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  
+  --active-bar-color: #146eb4;
 
 }
 
@@ -28,24 +28,76 @@
 
 .text2 {
   color: #4d4d4d;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 20px;
   font-family: 'GalanoGrotesque', sans-serif;
 
 }
 
 .text3 {
-  color: #ff6347;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 28px;
+  color: #636363;
+  font-size: 14px;
+  font-weight:400;
   font-family: 'GalanoGrotesque', sans-serif;
 }
+ 
 
 body{
   width: 100%;
   height: 100%;
+  
+}
+
+.container{
+  width: 100%;
+  padding: 0 90px;
+  max-width: 1440px;
+  
+}
+.containerBorderBottom{
+  border-bottom: 1px solid #bbbbbb;
+ 
+  
+} 
+
+.active-bar:after {
+  content: "";
+  height: 3.5px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background: var(--active-bar-color);
+}
+ 
+ 
+.productCardContainer {
+  max-width: calc(33.3333% - 24px);
+  border: 1px solid rgb(212, 203, 203);
+  border-radius: 8px;
+  flex: 1 0 calc(33.3333% - 24px);
+  margin: 12px;
+  position: relative;
   display: flex;
-  justify-content: center;
+  padding: 16px;
+}
+ 
+
+
+
+/* In your stylesheet or inline styles */
+@media (max-width: 1024px) {
+  .hide-mobile {
+    display: none;
+  }
+  .productCardContainer {
+    max-width: 100%;
+    width: 100%;
+    min-width: unset;
+    border: none;
+    border-radius: 0;
+    flex: 1;
+    margin: 0;
+  }
 }
