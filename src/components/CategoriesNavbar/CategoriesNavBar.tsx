@@ -89,14 +89,14 @@ const CategoriesNavBar: React.FC<CategoriesNavBarProps> = ({ categories, onClick
   }
 
   return (
-    <div className='flex containerBorderBottom container'>
-     <div className='flex items-center' >
+    <div className='flex containerBorderBottom container stickyCategory'>
+     <div className='flex items-center hide-mobile'  >
      <div style={{borderRightWidth:'1px',borderColor:"#dcdcdc",display:'flex',padding:'3px 3px 3px 0',marginRight:'2px'}}>
        <span className='text3' > All Categories</span>
       </div>
       </div>
-      <div style={{width:'100%',position:'relative' }}>
-      <div  ref={refContainer} style={{ maxWidth: 'calc(100% - 50px)' ,height:'100%'}} className="overflow-x-auto padding-bottom-10 ">
+      <div style={{width:'100%',position:'relative' }}  >
+      <div  ref={refContainer} style={{ maxWidth: 'calc(100% - 50px)' ,height:'100%'}} className="overflow-x-auto padding-bottom-10 hide-mobile ">
         <ul
           className="flex space-x-2 list-none p-0  "
           style={{height:'100%'}}
