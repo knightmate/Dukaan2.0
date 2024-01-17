@@ -106,6 +106,18 @@ body{
   background-color: white;
   z-index: 100;
 }
+.SProductSectionHeader {
+  top: 120px;
+  width: 100%;
+  z-index: 80;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 0px solid rgb(242, 242, 242);
+  position: sticky;
+  background-color: white;
+}
 /* In your stylesheet or inline styles */
 @media (max-width: 1024px) {
   .hide-mobile {
@@ -135,5 +147,11 @@ body{
   .container{
     padding: 0 20px;
 
+  }
+  .SProductSectionHeader{
+    top:0
+  }
+  .containerBorderBottom{
+    border:none;
   }
 }

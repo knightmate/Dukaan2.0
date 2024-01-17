@@ -94,7 +94,7 @@ const [selectedCategoryId,setSelectedCategory]=useState(0);
   return (
     <div  > 
 
-     <div className='relative containerBorderBottom sticky top-16 z-20 bg-white '> 
+     <div className='relative   sticky top-16 z-20 bg-white '> 
     <CategoriesNavBar categories={categories} onClick={(selectedId)=>{
 
         const updatedData=categories.map((data)=>{

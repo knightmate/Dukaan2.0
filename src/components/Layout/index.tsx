@@ -41,7 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
        <div>
-        <div style={{padding:'10px'}} className='containerBorderBottom stickyHeader bg-white'> 
+        <div style={{padding:'10px'}} className='stickyHeader bg-white hide-mobile'> 
         <div className='container'> 
          <div className="flex justify-between flex-1 items-center z-index-100">
           <div className="w-full max-w-300px" style={{ maxWidth: '300px', flexDirection: "row", display: 'flex' }}>

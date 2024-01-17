@@ -6,18 +6,7 @@ const ProductSectionHeader: React.FC<{ category: string; badgeCount: number }> =
 }) => {
   return (
     <div
-      style={{
-        top: '120px',
-        width: '100%',
-        zIndex: 80,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem',
-        border: '0px solid rgb(242, 242, 242)',
-        position: 'sticky',
-        backgroundColor: 'white',
-      }}
+      className='SProductSectionHeader'
     >
       <div style={{display:"flex"}}>
         <h2 style={{textTransform:'capitalize',fontWeight:'bold' ,fontSize:"1.3rem"}}>{category}</h2>
