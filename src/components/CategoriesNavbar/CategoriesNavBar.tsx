@@ -2,12 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Styles from './styles.module.css'
-
-interface Category {
-  id: string;
-  isSelected: boolean;
-  qnty: number
-}
+import { Category } from '../Body';
+ 
 
 interface CategoriesNavBarProps {
   categories: Category[];
@@ -108,20 +104,20 @@ const CategoriesNavBar: React.FC<CategoriesNavBarProps> = ({ categories, onClick
           { leftArrowVisible && (renderBackArrow())}
           {categories.map((category,index) => (
             <li
-              key={category.id}
+              key={category.categoryId}
               onClick={() => {
                 scrollCategory(index)
-                onClick(category.id)
+                onClick(category.categoryId)
               }}
               style={{ padding:'10px' }}
               className={`cursor-pointer ${category.isSelected ? 'active-bar' : ''} relative`}
             >
               <span className='text3' style={{ color: category.isSelected ? "#146eb4" : "" }}>
-                {category.id}
+                {category.categoryId}
               </span>
               <span style={{ margin: '0 2px' }}></span>
               <span className='text3' style={{ color: category.isSelected ? "#146eb4" : "" }}>
-                ({category.qnty})
+                ({category.products.length})
               </span>
 
             </li>
