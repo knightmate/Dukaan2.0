@@ -70,7 +70,7 @@ const Product: React.FC<ProductProps> = ({
 
   return (
     <div  className='productCardContainer'>
-      <a href={`/products/${productId}`} className="flex flex-col justify-between flex-1">
+      <a href={`/products/${productId}`} className="productItem">
         <div className="mb-4">
           <div style={productText} className="text-sm font-semibold line-clamp-2">{productName}</div>
           <div  style={{...productQtyStyle}}className="text-sm text-gray-600">Per piece</div>
