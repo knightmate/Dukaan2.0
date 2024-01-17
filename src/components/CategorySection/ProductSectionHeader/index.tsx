@@ -7,7 +7,7 @@ const ProductSectionHeader: React.FC<{ category: string; badgeCount: number }> =
   return (
     <div
       style={{
-        top: '70px',
+        top: '120px',
         width: '100%',
         zIndex: 80,
         display: 'flex',
@@ -15,7 +15,8 @@ const ProductSectionHeader: React.FC<{ category: string; badgeCount: number }> =
         alignItems: 'center',
         padding: '1rem',
         border: '0px solid rgb(242, 242, 242)',
-        position: 'sticky' ,
+        position: 'sticky',
+        backgroundColor: 'white',
       }}
     >
       <div style={{display:"flex"}}>
