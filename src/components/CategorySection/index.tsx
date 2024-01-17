@@ -102,9 +102,9 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categoryId }) => {
   };
   
   return (
-    <div ref={categoryContainerRef} className="flex flex-col">
+    <div ref={categoryContainerRef} className="flex flex-col container">
       {/* Sticky Header */}
-      <div className="sticky top-0 bg-white p-4 shadow z-10">
+      <div className="sticky top-0 bg-white p-4  z-10">
         <h2 className="text-2xl font-bold">{categoryId}</h2>
       </div>
 
@@ -134,7 +134,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categoryId }) => {
           )
         })
       }
-      {/* View All Button */}
+       
       <div className="flex justify-center">
         <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full">
           View All

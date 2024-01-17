@@ -21,7 +21,7 @@ const Body: React.FC<any> = () => {
   return (
     <div  > 
 
-     <div className='relative containerBorderBottom sticky top-16 z-20 bg-white container '> 
+     <div className='relative containerBorderBottom sticky top-16 z-20 bg-white '> 
     <CategoriesNavBar categories={fakeCategories} onClick={(selectedId)=>{
 
         const updatedData=fake.map((data)=>{
