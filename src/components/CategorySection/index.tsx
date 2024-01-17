@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Product from '../Product';
+import ProductSectionHeader from './ProductSectionHeader';
 
 interface CategorySectionProps {
   categories: Category[],
@@ -74,9 +75,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
         categories?.map((category, index) => {
           return (
             <div ref={(ref) => (categoryRefs.current[category.categoryId] = ref)}>
-              <div style={{zIndex:80,height:'100px',paddingTop:"20px", paddingBottom:'20px' ,top:'120px',backgroundColor:'white'}} className="sticky   bg-white ">
-                <h2 className="text-2xl font-bold">{category.categoryName}</h2>
-              </div>
+               <ProductSectionHeader category={category.categoryName} badgeCount={category.products.length} />
               <div className=" productContainer">
 
                 {
