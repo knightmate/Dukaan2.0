@@ -1,5 +1,5 @@
 .button-add{
-    height: 28px;
+    height: 48px;
     min-width: 82px;
     width: 100%;
     border-radius: 4px;
@@ -11,6 +11,14 @@
     line-height: 14px;
     display: inline-block;
     position: relative;
-    border: 1px solid #146eb4!important;
+    border: 1px solid hsl(206, 80%, 39%)!important;
 
 }
+
+.cartButton{
+ background-color:  hsl(206, 80%, 39%)!important;
+ color: white;
+ font-size: 16;
+
+}
+ 

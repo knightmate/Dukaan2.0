@@ -10,11 +10,14 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ onClick, title ="ADD"}) => {
   return (
+    
     <button
       onClick={onClick}
-      className={Styles["button-add"]}
+      className={`${Styles["button-add"]} ${Styles["cartButton"]} `}
+
      >
       {title}
+      
     </button>
   );
 };

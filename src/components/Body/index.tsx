@@ -92,19 +92,16 @@ const [ categories,setCategories]=useState<Category[]>(()=>{
 const [selectedCategoryId,setSelectedCategory]=useState(0);
  
   return (
-    <div  > 
-
+    <div> 
      <div className='relative   sticky top-16 z-20 bg-white '> 
     <CategoriesNavBar categories={categories} onClick={(selectedId)=>{
-
         const updatedData=categories.map((data)=>{
               if(data.categoryId==selectedId){
                 data.isSelected=true
               }else{
                 data.isSelected=false
-              }
-              
-            return data
+              }        
+          return data
        })
        const selectedCategoryId=updatedData.findIndex(({isSelected})=>isSelected);
        setSelectedCategory(selectedCategoryId);

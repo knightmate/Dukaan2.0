@@ -2,6 +2,7 @@
 import Body from "@/components/Body";
 import Layout from "@/components/Layout";
 import ProductImage from "@/components/Product/ProductImage";
+import ProductInfo from "@/components/Product/ProductInfo";
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 
 
@@ -16,7 +17,14 @@ export default function Page() {
   return (
     <Layout>
    
-       <ProductImage/>
+      <div className="productDetailWrapperCard">
+      <ProductImage/>
+       <div
+    className={`productDetailWrapper`}       
+    >
+      <ProductInfo/>
+      </div>
+      </div>
      
     </Layout>
   )

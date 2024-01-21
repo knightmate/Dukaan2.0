@@ -43,7 +43,9 @@ const CounterButton: React.FC<CounterButtonProps> = ({ initialValue = 0 }) => {
           justifyContent: 'center',
           flex: 1,
           alignItems: 'center',
-          borderRadius: "4px"
+          borderRadius: "4px",
+          height:'48px',
+             
         }}
       >
         <span style={{}}>

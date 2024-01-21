@@ -29,7 +29,7 @@ const ProductImage = () => {
 
   return (
     <div
-    className={Styles.productContainer}
+    className={`${Styles.productContainer} productDetailWrapper`}
       data-video-image-link="https://dukaan-core-file-service.s3.ap-southeast-1.amazonaws.com/upload_file_service/f68c8f38-d83f-4770-a09e-ceeb3547b599/1686808798094.jpeg"
        onClick={() => openPinchZoomModal(0)}
     >
@@ -37,7 +37,7 @@ const ProductImage = () => {
  
        <div style={{height:'450px',display:'flex',borderColor:'red',borderWidth:0}}>
        <img
-        style={{objectFit:'contain',justifyContent:'center',alignItems:"center"}}
+        style={{objectFit:'contain',justifyContent:'center',alignItems:"center",width:'auto',height:'100%'}}
           src="https://dukaan.b-cdn.net/700x700/webp/upload_file_service/f68c8f38-d83f-4770-a09e-ceeb3547b599/1686808798094.jpeg"
           alt="Akha Masur"
            

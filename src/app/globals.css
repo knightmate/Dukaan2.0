@@ -118,8 +118,24 @@ body{
   position: sticky;
   background-color: white;
 }
+.productDetailWrapper{
+  width: calc(100%);
+  height: 564px;
+   
+}
+.productDetailWrapperCard{
+  display: flex;
+
+}
 /* In your stylesheet or inline styles */
 @media (max-width: 1024px) {
+  .productDetailWrapperCard{
+    flex-direction:column;
+  }
+  .productDetailWrapper{
+    height: 450px;
+    border: none;
+  }
   .hide-mobile {
     display: none;
   }
@@ -155,3 +171,5 @@ body{
     border:none;
   }
 }
+
+ 
