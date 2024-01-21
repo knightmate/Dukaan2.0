@@ -22,11 +22,13 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
   return (
     <div className="productDetailedInfo">
        
-      <div style={{borderColor:'red',borderWidth:0,display:'flex',flex:1}}>
+      <div style={{gap:'30px',borderColor:'red',borderWidth:0,display:'flex',flex:1,marginTop:'40px'}}>
       <ButtonCounter/>
-      <AddButton onClick={function (): void {
+       
+      <AddButton  onClick={function (): void {
                   throw new Error('Function not implemented.');
               } } title={'Add to Cart'}/>
+      
       </div>
     </div>
   );

@@ -17,12 +17,12 @@ export default function Page() {
   return (
     <Layout>
    
-      <div className="productDetailWrapperCard">
+      <div className="productDetailWrapperCard container">
       <ProductImage/>
        <div
     className={`productDetailWrapper`}       
     >
-      <ProductInfo/>
+      <ProductInfo productName={""} productQty={""} productDiscountPrice={""} productActualPrice={""} productDiscount={""}/>
       </div>
       </div>
      
