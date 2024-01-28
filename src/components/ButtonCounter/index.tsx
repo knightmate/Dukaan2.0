@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 
 interface CounterButtonProps {
-  initialValue?: number;
+  cartItemCount?: number;
+  addtoCart:any;
+  removeFromCart:any
 }
 const buttonsStyles: any = {
   minHeight: '28px',
@@ -18,24 +20,19 @@ const buttonsStyles: any = {
   position: 'relative',
 };
 
-const CounterButton: React.FC<CounterButtonProps> = ({ initialValue = 0 }) => {
-  const [count, setCount] = useState(initialValue);
-
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-
+const CounterButton: React.FC<CounterButtonProps> = ({ cartItemCount = 0,removeFromCart,addtoCart }) => {
+ 
+ 
+  console.log("Addtoar",addtoCart,removeFromCart,)
   return (
     <div style={buttonsStyles}>
 
       <div
-        onClick={handleDecrement}
+        onClick={()=>{
+          //restrict to negatie value
+          if(cartItemCount==0)return;
+          removeFromCart()
+        }}
         style={{
           border: '1px solid #146eb4',
           cursor: 'pointer',
@@ -63,10 +60,10 @@ const CounterButton: React.FC<CounterButtonProps> = ({ initialValue = 0 }) => {
           flex:1.5
         }}
       >
-        {count}
+        {cartItemCount}
       </div>
       <div
-  onClick={handleDecrement}
+  onClick={addtoCart}
   style={{
     border: '1px solid #146eb4',
     cursor: 'pointer',

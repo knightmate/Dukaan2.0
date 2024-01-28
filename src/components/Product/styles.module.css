@@ -22,8 +22,7 @@
 }
 .productDetailedInfo {
     width: 100%;
-    height: 564px;
-    display: flex;
+     display: flex;
     justify-content: center;
      
     padding-left: 10px;
@@ -37,6 +36,7 @@
 
     .productDetailedInfo {
         justify-content: flex-start;
+        
         
       }
       

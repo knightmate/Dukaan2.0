@@ -1,6 +1,6 @@
 // ProductInfo.tsx
 
-import React from 'react';
+import React, { useState } from 'react';
 import AddButton from '../AddButton';
 import ButtonCounter from '../ButtonCounter';
 import Styles from './styles.module.css';
@@ -23,6 +23,8 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
   productDiscount,
   discountPercent
 }) => {
+    const [counter,setCounter]=useState(0);
+    
   return (
     <div className={`${Styles['productDetailedInfo']}`}>
            <ProductItem 
@@ -34,7 +36,11 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
       
       <div className={`${Styles['productInfo']}`}>
        
-      <ButtonCounter/>
+      <ButtonCounter cartItemCount={counter} addtoCart={()=>{         
+        setCounter((counter)=>counter++);
+      }} removeFromCart={()=>{
+        setCounter((counter)=>counter--);
+      }}/>
       <AddButton  onClick={function (): void {
                   throw new Error('Function not implemented.');
               } } title={'Add to Cart'}/>

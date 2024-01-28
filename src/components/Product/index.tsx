@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ButtonAdd from '../AddButton';
 import CounterButton from '../ButtonCounter';
 import ProductItem from './Productitem';
+import ButtonCounter from '../ButtonCounter';
 
 interface ProductProps {
   productId: string;
@@ -56,6 +57,7 @@ const productPriceText :any= {
   
 
 const Product: React.FC<ProductProps> = ({categoryId,productId,productActualPrice,productImage,productName,productPrice,discountPercent}) => {
+  const [counter,setCounter]=useState(0);
 
      
    return (
@@ -71,8 +73,11 @@ const Product: React.FC<ProductProps> = ({categoryId,productId,productActualPric
           </a>
         </div>
         <div style={{ display: 'flex' }}>
-          <CounterButton />
-        </div>
+        <CounterButton cartItemCount={counter} addtoCart={()=>{                  
+        setCounter((counter)=>counter+1);
+      }} removeFromCart={()=>{
+        setCounter((counter)=>counter-1);
+      }}/>        </div>
       </div>
     </div>
   );

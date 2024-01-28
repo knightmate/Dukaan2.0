@@ -44,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div style={{padding:'10px'}} className='stickyHeader bg-white hide-mobile'> 
         <div className='container'> 
          <div className="flex justify-between flex-1 items-center z-index-100">
-          <div className="w-full max-w-300px" style={{ maxWidth: '300px', flexDirection: "row", display: 'flex' }}>
+          <a href='/' className="w-full max-w-300px" style={{ maxWidth: '300px', flexDirection: "row", display: 'flex' }}>
             <img
               alt="store-logo"
               className="logoStoreImg h-52 w-auto max-w-160"
@@ -54,7 +54,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <header style={{ minWidth: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
               <h1>{title}</h1>
             </header>
-          </div>
+          </a>
 
           <div className={styles["hide-mobile"]}>
             <div style={{ width: "420px" }}>
