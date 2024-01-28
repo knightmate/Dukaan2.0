@@ -16,8 +16,16 @@ interface CategoryPopupProps {
 const CategoryPopup: React.FC<CategoryPopupProps> = ({ isOpen, onClose, categories }) => {
   return (
     <Modal  isOpen={isOpen} onRequestClose={onClose}>
-      <div  style={{background:'rgb(0 0 0 / 40%)',height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}} className="modal-content" id="popover-content" onClick={(event) => event.stopPropagation()}>
-       <div style={{ width:"50vw",borderWidth:1,backgroundColor:'white',borderRadius:"20px"}}>
+      <div   style={{width:'100%',background:'transparent',height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}} className="modal-content" id="popover-content" 
+      onClick={(event) => {
+
+       const id=event.target.id;
+       if(id=="popover-content"){
+        onClose()
+       } 
+         event.stopPropagation()
+      }}>
+       <div style={{maxWidth:'446px', width:"100%",borderWidth:1,backgroundColor:'white',borderRadius:"20px"}}>
            <div   className='containerBorderBottom' >
             {categories.map((category) => (
               <CategoryPopupItem uuid={'fffdfdf'} itemId={'fdfdf'} categoryName={'fdf'} productCount={0}/>

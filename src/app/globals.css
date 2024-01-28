@@ -136,8 +136,15 @@ body{
   display: flex;
 
 }
+.hide-desktop{
+  display: none !important;
+  }
 /* In your stylesheet or inline styles */
 @media (max-width: 1024px) {
+  
+  .hide-desktop{
+    display: block !important;
+    }
   .productDetailWrapperCard{
     flex-direction:column;
   }
@@ -148,6 +155,7 @@ body{
   .hide-mobile {
     display: none;
   }
+  
   .productItem{
     justify-content: center;
   }
@@ -190,6 +198,8 @@ body{
   justify-content: center;
   transition: opacity 200ms ease-in-out;
   z-index: 1000;
+  background:rgb(0 0 0 / 40%)  !important;
+
  }
 
 .ReactModalPortal .ReactModal__Overlay--after-open {
@@ -209,26 +219,8 @@ body{
   background-color: transparent !important;
   z-index: 1000;
   border: none !important;
+   
 }
-.modal {
-  position: relative;
-  background: #464b5e;
-  color: white;
-  max-width: 90rem;
-  outline: none;
-  padding: 3.2rem;
-  text-align: center;
-  
-}
-
-.modal__title {
-  margin: 0 0 1.6rem 0;
-}
-
-.modal__body {
-  font-size: 2rem;
-  font-weight: 300;
-  margin: 0 0 3.2rem 0;
-  word-break: break-all;
-  
-}
+ 
+ 
+ 
