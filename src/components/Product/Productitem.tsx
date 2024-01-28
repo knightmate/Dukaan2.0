@@ -1,7 +1,6 @@
 import React from 'react';
 import ButtonAdd from '../AddButton';
 import CounterButton from '../ButtonCounter';
-import ProductItem from './Productitem';
 
 interface ProductProps {
   productId: string;
@@ -54,32 +53,41 @@ const productPriceText :any= {
    
 };
   
-
-const Product: React.FC<ProductProps> = ({categoryId,productId,productActualPrice,productImage,productName,productPrice,discountPercent}) => {
-
-     
-   return (
-    <div  className='productCardContainer'>
-   <a href={`/products/${categoryId}?id=${productId} `} className='productItem' >
-     <ProductItem productId={productId} categoryId={categoryId} productName={productName}  productPrice={productPrice} productActualPrice={productActualPrice} discountPercent={discountPercent}/>
-     </a>
-
-      <div className="flex flex-col justify-between">
-        <div className="mb-4">
-          <a href={`/products/${productId}`}>
-            <img src={productImage} className="bordered object-contain" style={productImageStyle} alt="productImg" loading="lazy" />
-          </a>
+export const ProductItem = ({productId, productName, categoryId,productPrice, productActualPrice, discountPercent }:any) => {
+   
+    return (
+<div> 
+<div className="mb-4">
+          <div style={productText} className="text-sm font-semibold line-clamp-2">
+            {productName}
+          </div>
+          <div style={{ ...productQtyStyle }} className="text-sm text-gray-600">
+            Per piece
+          </div>
         </div>
-        <div style={{ display: 'flex' }}>
-          <CounterButton />
+        <div className="flex flex-row items-center flex-wrap">
+          <div style={productPriceText} className="">
+            ₹{productPrice}
+            <span style={{ marginRight: '12px' }} className="line-through">
+              ₹{productActualPrice}
+            </span>
+          </div>
+          <div className="text-sm text-gray-500 flex row items-center">
+            <span
+              style={{ backgroundColor: '#ee741f', borderRadius: '4px', padding: '2px 8px' }}
+              className="text-sm text-white"
+            >
+              {discountPercent}% OFF
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default Product;
+    );
+  };
 
 
-  
+ export default ProductItem
+ 
+ 
+
  

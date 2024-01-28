@@ -15,7 +15,7 @@
     border-color: red;
     border-width: 0;
     display: flex;
-    flex: 1;
+    
     margin-top: 40px;
     justify-content:'center';
     align-items: 'center';
@@ -25,9 +25,10 @@
     height: 564px;
     display: flex;
     justify-content: center;
-    align-items: center;
+     
     padding-left: 10px;
     padding-right: 10px;
+    flex-direction: column;
   }
   
  
@@ -36,7 +37,7 @@
 
     .productDetailedInfo {
         justify-content: flex-start;
-         
+        
       }
       
   }

@@ -9,30 +9,29 @@ import { getProductbyid } from "../../../../data";
 
 export default function Page() {
 
-    const params=useParams<{ productName:string}>();
-    const router = useRouter();
-   const selectedId= useSearchParams().get("id")||""
+  const params = useParams<{ productName: string }>();
+  const router = useRouter();
+  const selectedId = useSearchParams().get("id") || ""
+
  
-    console.log("params",params,selectedId);
- 
-    const product=getProductbyid(params.productName,selectedId)
-  
-    const {productName,discountPercent,productActualPrice,productPrice}=product||{productId:"",productActualPrice:"",productImage:"",productName:"",productPrice:""};
-    console.log("product-----",product);
+  const product = getProductbyid(params.productName, selectedId)
+
+  const { productName, discountPercent, productActualPrice, productPrice } = product || { productId: "", productActualPrice: "", productImage: "", productName: "", productPrice: "" };
+  console.log("product-----", params,selectedId);
 
 
   return (
     <Layout>
-   
+
       <div className="productDetailWrapperCard container">
-      <ProductImage/>
-       <div
-    className={`productDetailWrapper`}       
-    >
-      <ProductInfo productName={productName} productQty={""} productDiscountPrice={productPrice} productActualPrice={productActualPrice} productDiscount={discountPercent}/>
+        <ProductImage />
+        <div
+          className={`productDetailWrapper`}
+        >
+          <ProductInfo productName={productName} productQty={""} productDiscountPrice={productPrice} productActualPrice={productActualPrice} productDiscount={discountPercent} />
+        </div>
       </div>
-      </div>
-     
+
     </Layout>
   )
 }
