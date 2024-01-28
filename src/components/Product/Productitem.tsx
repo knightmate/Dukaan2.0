@@ -9,7 +9,7 @@ interface ProductProps {
   productPrice: number;
   productActualPrice: number;
   discountPercent: number;
-  categoryId:string
+  categoryId: string
 }
 
 const productCardContainerStyle: any = {
@@ -35,8 +35,8 @@ const productText = {
   fontWeight: 500,
   lineHeight: "24px",
 }
- 
-const productQtyStyle:any = {
+
+const productQtyStyle: any = {
   color: 'gray',
   textTransform: 'lowercase',
   marginTop: '8px',
@@ -44,50 +44,49 @@ const productQtyStyle:any = {
   fontWeight: 400,
   lineHeight: '18px',
 };
-const productPriceText :any= {
+const productPriceText: any = {
   marginRight: '6px',
   fontSize: '18px',
   fontWeight: 500,
   lineHeight: '26px',
-  color:"black",
-   
+  color: "black",
+
 };
-  
-export const ProductItem = ({productId, productName, categoryId,productPrice, productActualPrice, discountPercent }:any) => {
-   
-    return (
-<div> 
-<div className="mb-4">
-          <div style={productText} className="text-sm font-semibold line-clamp-2">
-            {productName}
-          </div>
-          <div style={{ ...productQtyStyle }} className="text-sm text-gray-600">
-            Per piece
-          </div>
+
+export const ProductItem = ({ productId, productName, categoryId, productPrice, productActualPrice, discountPercent }: any) => {
+
+  return (
+    <div className='productItem'>
+      <div className="mb-4">
+        <div style={productText} className="text-sm font-semibold line-clamp-2">
+          {productName}
         </div>
-        <div className="flex flex-row items-center flex-wrap">
-          <div style={productPriceText} className="">
-            ₹{productPrice}
-            <span style={{ marginRight: '12px' }} className="line-through">
-              ₹{productActualPrice}
-            </span>
-          </div>
-          <div className="text-sm text-gray-500 flex row items-center">
-            <span
-              style={{ backgroundColor: '#ee741f', borderRadius: '4px', padding: '2px 8px' }}
-              className="text-sm text-white"
-            >
-              {discountPercent}% OFF
-            </span>
-          </div>
+        <div style={{ ...productQtyStyle }} className="text-sm text-gray-600">
+          Per piece
         </div>
       </div>
-    );
-  };
+      <div className="flex flex-row items-center flex-wrap">
+        <div style={productPriceText} className="">
+          ₹{productPrice}
+          <span style={{ marginRight: '12px' }} className="line-through">
+            ₹{productActualPrice}
+          </span>
+        </div>
+        <div className="text-sm text-gray-500 flex row items-center">
+          <span
+            style={{ backgroundColor: '#ee741f', borderRadius: '4px', padding: '2px 8px' }}
+            className="text-sm text-white"
+          >
+            {discountPercent}% OFF
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 
- export default ProductItem
- 
- 
+export default ProductItem
 
- 
+
+
