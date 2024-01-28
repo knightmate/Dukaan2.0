@@ -3,6 +3,7 @@
 import React from 'react';
 import AddButton from '../AddButton';
 import ButtonCounter from '../ButtonCounter';
+import Styles from './styles.module.css';
 
 interface ProductInfoProps {
   productName: string;
@@ -20,9 +21,9 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
   productDiscount,
 }) => {
   return (
-    <div className="productDetailedInfo">
+    <div className={`${Styles['productDetailedInfo']}`}>
        
-      <div style={{gap:'30px',borderColor:'red',borderWidth:0,display:'flex',flex:1,marginTop:'40px'}}>
+      <div className={`${Styles['productInfo']}`}>
       <ButtonCounter/>
        
       <AddButton  onClick={function (): void {
