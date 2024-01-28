@@ -9,6 +9,7 @@ interface ProductProps {
   productPrice: number;
   productActualPrice: number;
   discountPercent: number;
+  categoryId:string
 }
 
 const productCardContainerStyle: any = {
@@ -53,39 +54,12 @@ const productPriceText :any= {
 };
   
 
-const Product: React.FC<ProductProps> = ({
+const Product: React.FC<ProductProps> = ({categoryId,productId,productActualPrice,productImage,productName,productPrice,discountPercent}) => {
 
-}) => {
-
-  const fakeProduct = {
-    productId: 'akha-masur',
-    productName: 'Akha Masur',
-    productImage: 'https://dukaan.b-cdn.net/280x280/webp/upload_file_service/f68c8f38-d83f-4770-a09e-ceeb3547b599/1686808798094.jpeg',
-    productPrice: 75,
-    productActualPrice: 80,
-    discountPercent: 6,
-  };
-  const { productActualPrice, productId, productImage, productName, productPrice, discountPercent } = fakeProduct;
-
-
-  return (
+     
+   return (
     <div  className='productCardContainer'>
-      <a href={`/products/${productId}`} className="productItem">
-        <div className="mb-4">
-          <div style={productText} className="text-sm font-semibold line-clamp-2">{productName}</div>
-          <div  style={{...productQtyStyle}}className="text-sm text-gray-600">Per piece</div>
-        </div>
-        <div className='flex flex-row items-center flex-wrap'>
-          <div style={productPriceText} className=''>
-            ₹{productPrice}
-            <span  style={{marginRight:'12px'}} className="line-through">₹{productActualPrice}</span>
-            </div>
-          <div  className="text-sm text-gray-500 flex row items-center">
-             <span style={{backgroundColor:'#ee741f' ,borderRadius:'4px' ,padding:'2px 8px' }}   className="text-sm text-white">{discountPercent}% OFF</span>
-          </div>
-
-        </div>
-      </a>
+     <ProductItem categoryId={categoryId} productName={productName}  productPrice={productPrice} productActualPrice={productActualPrice} discountPercent={discountPercent}/>
       <div className="flex flex-col justify-between">
         <div className="mb-4">
           <a href={`/products/${productId}`}>
@@ -101,3 +75,39 @@ const Product: React.FC<ProductProps> = ({
 };
 
 export default Product;
+
+
+ 
+const ProductItem = ({productId, productName, categoryId,productPrice, productActualPrice, discountPercent }:any) => {
+   
+  return (
+    <a href={`/products/${categoryId}?id=${productId} `} className='productItem' >
+    <div className="mb-4">
+        <div style={productText} className="text-sm font-semibold line-clamp-2">
+          {productName}
+        </div>
+        <div style={{ ...productQtyStyle }} className="text-sm text-gray-600">
+          Per piece
+        </div>
+      </div>
+      <div className="flex flex-row items-center flex-wrap">
+        <div style={productPriceText} className="">
+          ₹{productPrice}
+          <span style={{ marginRight: '12px' }} className="line-through">
+            ₹{productActualPrice}
+          </span>
+        </div>
+        <div className="text-sm text-gray-500 flex row items-center">
+          <span
+            style={{ backgroundColor: '#ee741f', borderRadius: '4px', padding: '2px 8px' }}
+            className="text-sm text-white"
+          >
+            {discountPercent}% OFF
+          </span>
+        </div>
+      </div>
+    </a>
+  );
+};
+
+ 

@@ -4,15 +4,22 @@ import Layout from "@/components/Layout";
 import ProductImage from "@/components/Product/ProductImage";
 import ProductInfo from "@/components/Product/ProductInfo";
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
+import { getProductbyid } from "../../../../data";
 
 
 export default function Page() {
 
     const params=useParams<{ productName:string}>();
     const router = useRouter();
-   const searchParams= useSearchParams().get("id")
+   const selectedId= useSearchParams().get("id")||""
  
-    console.log("params",params);
+    console.log("params",params,selectedId);
+ 
+    const product=getProductbyid(params.productName,selectedId)
+  
+    const {productName,discountPercent,productActualPrice,productPrice}=product||{productId:"",productActualPrice:"",productImage:"",productName:"",productPrice:""};
+    console.log("product-----",product);
+
 
   return (
     <Layout>
@@ -22,7 +29,7 @@ export default function Page() {
        <div
     className={`productDetailWrapper`}       
     >
-      <ProductInfo productName={""} productQty={""} productDiscountPrice={""} productActualPrice={""} productDiscount={""}/>
+      <ProductInfo productName={productName} productQty={""} productDiscountPrice={productPrice} productActualPrice={productActualPrice} productDiscount={discountPercent}/>
       </div>
       </div>
      

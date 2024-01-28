@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       
       <body id='root_body' className={inter.className}>
+        <div style={{display:'flex',justifyContent:'center'}}>
         {children}
+        </div>
         </body>
       
       

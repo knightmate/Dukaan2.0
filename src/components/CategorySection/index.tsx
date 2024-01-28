@@ -80,7 +80,10 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
 
                 {
                   category.products.map((product) => {
-                    return (<Product productId={''} productName={''} productImage={''} productPrice={0} productActualPrice={0} discountPercent={0} />
+                    const {productId,productName,productImage,productPrice,productActualPrice,discountPercent}=product;
+                    return (
+                     <Product categoryId={category.categoryId} productId={productId} productName={productName} productImage={productImage} productPrice={productPrice} productActualPrice={productActualPrice} discountPercent={discountPercent} />
+                    
                     )
                   })
                 }
