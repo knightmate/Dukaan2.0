@@ -23,8 +23,7 @@ const buttonsStyles: any = {
 const CounterButton: React.FC<CounterButtonProps> = ({ cartItemCount = 0,removeFromCart,addtoCart }) => {
  
  
-  console.log("Addtoar",addtoCart,removeFromCart,)
-  return (
+   return (
     <div style={buttonsStyles}>
 
       <div

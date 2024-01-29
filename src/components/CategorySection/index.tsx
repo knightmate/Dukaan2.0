@@ -74,9 +74,9 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
       {
         categories?.map((category, index) => {
           return (
-            <div ref={(ref) => (categoryRefs.current[category.categoryId] = ref)}>
+            <div  id={`#${category.categoryId}`} ref={(ref) => (categoryRefs.current[category.categoryId] = ref)}>
                <ProductSectionHeader category={category.categoryName} badgeCount={category.products.length} />
-              <div className=" productContainer">
+              <div  className=" productContainer">
 
                 {
                   category.products.map((product) => {

@@ -39,29 +39,45 @@ const Body: React.FC<any> = () => {
   const [selectedCategoryId, setSelectedCategory] = useState(0);
   const [categoryModal,setCategoryModal]=useState(false);
 
+  const handleSelectedCategory=(selectedId:string)=>{
+
+    setCategoryModal(false);
+    const updatedData = categories.map((data) => {
+      if (data.categoryId == selectedId) {
+        data.isSelected = true
+      } else {
+        data.isSelected = false
+      }
+      return data
+    });
+  setTimeout(()=>{
+
+    const selectedCategoryId = updatedData.findIndex(({ isSelected }) => isSelected);
+    setSelectedCategory(selectedCategoryId);
+    setCategories(updatedData)
+
+  },100)
+
+  }
   return (
     <div>
       <div className='relative   sticky top-16 z-20 bg-white '>
         <CategoriesNavBar categories={categories} onClick={(selectedId) => {
-          const updatedData = categories.map((data) => {
-            if (data.categoryId == selectedId) {
-              data.isSelected = true
-            } else {
-              data.isSelected = false
-            }
-            return data
-          })
-          const selectedCategoryId = updatedData.findIndex(({ isSelected }) => isSelected);
-          setSelectedCategory(selectedCategoryId);
-          setCategories(updatedData)
+          
+          handleSelectedCategory(selectedId)
 
         }} />
         <CategorySection selectedCategory={selectedCategoryId} categories={categories} />
       </div>
 
-      <CategoryPopup  isOpen={categoryModal} onClose={function (): void {
+      <CategoryPopup onCategorySelected={(id)=>{
+ 
+            handleSelectedCategory(id)
+
+       
+      }}  isOpen={categoryModal} onClose={function (): void {
         setCategoryModal(false)
-      }} categories={getData()} />
+      }} categories={categories} />
 
       <div className='hide-desktop'>
         <div style={{  zIndex: 1200, position: 'fixed', bottom: "80px", display: 'flex', flex: 1, width: '100%', justifyContent: 'center' }}>
