@@ -50,7 +50,8 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
 
   useEffect(() => {
 
-    if (!selectedCategory) return;
+    
+    if (selectedCategory==undefined||selectedCategory==null) return;
     scrollToSelectedCategory(selectedCategory)
 
   }, [selectedCategory]);
@@ -62,7 +63,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
   };
   const scrollToSelectedCategory = (idx: number) => {
     const pos = calculateScrollPos(categoryHeights, idx);
-
+      
     window.scrollTo({ top: pos, behavior: "smooth" })
   }
 
