@@ -4,7 +4,9 @@ import ProductSectionHeader from './ProductSectionHeader';
 
 interface CategorySectionProps {
   categories: Category[],
-  selectedCategory: number
+  selectedCategory: number,
+  onSelectCategoryChange:(id:string)=>void
+
 }
 
 
@@ -14,11 +16,11 @@ interface Category {
   categoryId: string;
   categoryName: string;
   products: any[];
-}
+ }
 
 
 
-const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedCategory = 0 }) => {
+const CategorySection: React.FC<CategorySectionProps> = ({onSelectCategoryChange, categories, selectedCategory = 0 }) => {
 
   const categoryRef = useRef<HTMLDivElement>(null);
   const categoryRefs = useRef<{ [key: string]: React.RefObject<HTMLDivElement> }>({});
@@ -29,7 +31,15 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
   console.log("categoryHeights", categoryHeights)
 
   useEffect(() => {
-    const updateHeights = () => {
+ 
+// Attach the scroll event listener when the component mounts
+   window.addEventListener('scroll', ()=>{
+   // const id=checkVisibleChildren();
+   // id && onSelectCategoryChange(id);
+});
+
+// Remove the event listener when the component unmounts
+   const updateHeights = () => {
       const newHeights: [] = [];
       Object.keys(categoryRefs.current).forEach((categoryId) => {
         const categoryRef = categoryRefs.current[categoryId];
@@ -46,6 +56,11 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
     updateHeights()
 
 
+    return function cleanUp(){
+      window.removeEventListener('scroll', ()=>{
+       
+    });
+    }
   }, [])
 
   useEffect(() => {
@@ -67,6 +82,29 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
     window.scrollTo({ top: pos, behavior: "smooth" })
   }
 
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+  
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+const checkVisibleChildren = () => {
+  const container = categoryContainerRef.current;
+  const children = container?.childNodes;
+
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i];
+
+    if (isElementInViewport(child)) {
+      return child.id;
+     }
+  }
+};
+
   return (
     <div ref={categoryContainerRef} className="flex flex-col container">
 
@@ -74,7 +112,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
       {
         categories?.map((category, index) => {
           return (
-            <div  id={`#${category.categoryId}`} ref={(ref) => (categoryRefs.current[category.categoryId] = ref)}>
+            <div  id={`${category.categoryId}`} ref={(ref) => (categoryRefs.current[category.categoryId] = ref)}>
                <ProductSectionHeader category={category.categoryName} badgeCount={category.products.length} />
               <div  className=" productContainer">
 

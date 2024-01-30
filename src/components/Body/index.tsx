@@ -1,10 +1,9 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useDeferredValue, useState, useTransition } from 'react';
 import CategoriesNavBar from '../CategoriesNavbar/CategoriesNavBar';
 import CategorySection from '../CategorySection';
 import getData from '../../../data';
 import CategoryPopup from '../Categories';
-import Button from '../AddButton';
 
 
 interface Product {
@@ -37,9 +36,10 @@ const Body: React.FC<any> = () => {
     return getData()
   });
   const [selectedCategoryId, setSelectedCategory] = useState(0);
-  const [categoryModal,setCategoryModal]=useState(false);
+  const [categoryModal, setCategoryModal] = useState(false);
+  const [loading,startTransition]=useTransition()
 
-  const handleSelectedCategory=(selectedId:string)=>{
+  const handleSelectedCategory = (selectedId: string) => {
 
     setCategoryModal(false);
     const updatedData = categories.map((data) => {
@@ -50,38 +50,56 @@ const Body: React.FC<any> = () => {
       }
       return data
     });
-  setTimeout(()=>{
+    setTimeout(() => {
 
-    const selectedCategoryId = updatedData.findIndex(({ isSelected }) => isSelected);
-    setSelectedCategory(selectedCategoryId);
-    setCategories(updatedData)
+      const selectedCategoryId = updatedData.findIndex(({ isSelected }) => isSelected);
+      setSelectedCategory(selectedCategoryId);
+      setCategories(updatedData);
 
-  },100)
+      console.log("selected", selectedId, updatedData);
+
+
+    }, 100)
 
   }
+  console.log("categoriesSelected", categories);
   return (
     <div>
       <div className='relative   sticky top-16 z-20 bg-white '>
         <CategoriesNavBar categories={categories} onClick={(selectedId) => {
-          
+
           handleSelectedCategory(selectedId)
 
         }} />
-        <CategorySection selectedCategory={selectedCategoryId} categories={categories} />
+        <CategorySection onSelectCategoryChange={(categoryId: string) => {
+         
+           startTransition(()=>{
+            const updatedData = categories.map((data) => {
+              if (data.categoryId == categoryId) {
+                data.isSelected = true
+              } else {
+                data.isSelected = false
+              }
+              return data
+            });
+            setCategories(updatedData);
+           })
+          
+        }} selectedCategory={selectedCategoryId} categories={categories} />
       </div>
 
-      <CategoryPopup onCategorySelected={(id)=>{
- 
-            handleSelectedCategory(id)
+      <CategoryPopup onCategorySelected={(id) => {
 
-       
-      }}  isOpen={categoryModal} onClose={function (): void {
+        handleSelectedCategory(id)
+
+
+      }} isOpen={categoryModal} onClose={function (): void {
         setCategoryModal(false)
       }} categories={categories} />
 
       <div className='hide-desktop'>
-        <div style={{  zIndex: 1200, position: 'fixed', bottom: "80px", display: 'flex', flex: 1, width: '100%', justifyContent: 'center' }}>
-          <button onClick={()=>{
+        <div style={{ zIndex: 1200, position: 'fixed', bottom: "80px", display: 'flex', flex: 1, width: '100%', justifyContent: 'center' }}>
+          <button onClick={() => {
             setCategoryModal(true)
           }} >
             <div style={{ width: '48px', height: '48px', borderRadius: '24px', padding: '12px', backgroundColor: '#4d4d4d' }} >
