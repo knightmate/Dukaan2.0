@@ -58,8 +58,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ categories, selectedC
     if (targetIndex < 0 || targetIndex >= categoryHeights.length) {
       return 0; // Invalid index
     }
-
-    return categoryHeights.slice(0, targetIndex + 1).reduce((acc, height) => acc + height, 0);
+    return categoryHeights.slice(0, targetIndex).reduce((acc, height) => acc + height, 200);
   };
   const scrollToSelectedCategory = (idx: number) => {
     const pos = calculateScrollPos(categoryHeights, idx);
